@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
+import connectDB from "./config/db.js";
 
 const app = express();
 
@@ -9,6 +10,9 @@ const app = express();
 dotenv.config();
 const port = process.env.PORT || 8000;
 const admin_url = process.env.ADMIN_URL;
+
+// Connect to database
+connectDB();
 
 // Enhanced CORS configuration
 app.use(
